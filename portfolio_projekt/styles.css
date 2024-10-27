@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(270deg, #1E2761,  #408EC6, #7A2048); /* Initial gradient */
+    background-size: 400% 400%; /* Make the gradient larger for animation */
+    animation: gradientAnimation 15s ease infinite; /* Apply the animation */
+    color: #333;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%; /* Starting position */
+    }
+    50% {
+        background-position: 100% 50%; /* Middle position */
+    }
+    100% {
+        background-position: 0% 50%; /* Ending position */
+    }
+}
+
+header {
+    position: relative; /* Position relative to allow absolute positioning of the pseudo-element */
+    text-align: center;
+    padding: 2em 0 1em; /* Add bottom padding for space between header and images */
+    margin-bottom: 50px; /* Space below the header */
+    z-index: 1; /* Ensure the header content is above the glow */
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -10px; /* Adjust to control the glow's vertical position */
+    left: -10px; /* Adjust to control the glow's horizontal position */
+    right: -10px; /* Full width of the glow */
+    bottom: -10px; /* Full height of the glow */
+    background-color: rgba(255, 255, 255, 0.2); /* Light background for the glow effect */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Subtle glow */
+    z-index: -1; /* Place it behind the header */
+}
+
+footer {
+    position: relative; /* Position relative to allow absolute positioning of the pseudo-element */
+    margin-top: 2em;
+    padding: 0.1em;
+    font-size: 0.9em;
+    color: #777;
+    z-index: 1; /* Ensure the footer content is above the glow */
+    margin-bottom: 10px; /* Space below the header */
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: -10px; /* Adjust to control the glow's vertical position */
+    left: -10px; /* Adjust to control the glow's horizontal position */
+    right: -10px; /* Full width of the glow */
+    bottom: -10px; /* Full height of the glow */
+    background-color: rgba(255, 255, 255, 0.2); /* Light background for the glow effect */
+    border-radius: 1px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Subtle glow */
+    z-index: -1; /* Place it behind the footer */
+}
+
+
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.albums {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em; /* Keep the gap for spacing */
+    max-width: 1000px; /* Increased max width for more space */
+}
+
+.album {
+    width: calc(25% - 1em); /* 25% width for four columns */
+    text-align: center;
+    position: relative; /* Positioning context for absolute children */
+}
+
+.album img {
+    width: 100%;
+    height: 200px; /* Set a fixed height for the images */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s; /* Added transition for box-shadow */
+}
+
+.album img:hover {
+    transform: scale(1.1); /* Increased scale for hover effect */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Shadow intensifies on hover */
+}
+
+.album h3 {
+    margin-top: 0.5em;
+    font-size: 1.2em;
+    color: #555;
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for better contrast */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 0.5em; /* Padding for spacing */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+
+
+.social-link {
+    color: #555;
+    text-decoration: none;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+
+.social-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.social-link:hover {
+    color: #E1306C; /* Instagram's pink color */
+}
+
+/* Adding hover effect for the entire album link */
+.album a {
+    transition: transform 0.3s, background-color 0.3s; /* Adding transition for background */
+}
+
+.album a:hover {
+    background-color: rgba(255, 255, 255, 1); /* Light background on hover */
+    border-radius: 8px; /* Ensure corners are rounded */
+}
+
